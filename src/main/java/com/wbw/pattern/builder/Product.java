@@ -2,7 +2,6 @@ package com.wbw.pattern.builder;
 
 /**
  * @author wbw
- * @description: TODO
  * @date 2022-4-5 22:34
  */
 public class Product {
