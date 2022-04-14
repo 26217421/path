@@ -1,7 +1,6 @@
 package com.wbw.pattern.creative.factory.simple;
 
 import com.wbw.pattern.creative.factory.opt.*;
-import com.wbw.pattern.factory.opt.*;
 
 /**
  * 简单工厂类
