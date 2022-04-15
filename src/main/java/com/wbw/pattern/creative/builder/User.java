@@ -2,7 +2,6 @@ package com.wbw.pattern.creative.builder;
 
 /**
  * @author wbw
- * @description: TODO
  * @date 2022-4-5 22:51
  */
 public class User {

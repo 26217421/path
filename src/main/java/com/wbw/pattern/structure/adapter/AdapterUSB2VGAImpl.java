@@ -1,14 +1,16 @@
 package com.wbw.pattern.structure.adapter;
 
 /**
- * 类适配器模式
+ *
  * @author wbw
  * @description: TODO
- * @date 2022-4-11 18:07
+ * @date 2022-4-15 0:39
  */
-public class AdapterUSB2VGA extends UsbImpl implements VGA{
+public class AdapterUSB2VGAImpl extends AdapterUSB2VGA2 {
+
     @Override
     public void projection() {
-        super.showPpt();
+        super.projection();
     }
+
 }

@@ -43,7 +43,7 @@ public class TreeSolution<T> {
                 stack.push(node);
                 node = node.left;
             } else {
-                res.add(node.val);
+                res.add(stack.peek().val);
                 node = stack.pop().right;
             }
         }
