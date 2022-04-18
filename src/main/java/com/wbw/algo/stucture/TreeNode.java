@@ -3,8 +3,12 @@ package com.wbw.algo.stucture;
 /**
  * @author wbw
  */
-public class TreeNode<T> {
-    public T val = null;
-    public TreeNode<T> left = null;
-    public TreeNode<T> right = null;
+public class TreeNode {
+    public Integer val = null;
+    public TreeNode left = null;
+    public TreeNode right = null;
+
+    TreeNode(int x) {
+        val = x;
+    }
 }
