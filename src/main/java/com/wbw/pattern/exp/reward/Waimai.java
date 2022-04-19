@@ -1,7 +1,7 @@
-package com.wbw.pattern.creative.exp.reward;
+package com.wbw.pattern.exp.reward;
 
-import com.wbw.pattern.creative.exp.reward.util.WaimaiRequest;
-import com.wbw.pattern.creative.exp.reward.util.WaimaiService;
+import com.wbw.pattern.exp.reward.util.WaimaiRequest;
+import com.wbw.pattern.exp.reward.util.WaimaiService;
 
 /**
  * @author wbw

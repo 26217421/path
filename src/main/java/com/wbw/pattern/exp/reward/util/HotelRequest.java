@@ -1,4 +1,4 @@
-package com.wbw.pattern.creative.exp.reward.util;
+package com.wbw.pattern.exp.reward.util;
 
 /**
  * @author wbw

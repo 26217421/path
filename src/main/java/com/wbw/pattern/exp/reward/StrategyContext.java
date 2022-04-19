@@ -1,4 +1,4 @@
-package com.wbw.pattern.creative.exp.reward;
+package com.wbw.pattern.exp.reward;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +26,9 @@ public class StrategyContext {
      * @return
      */
     public static Strategy getStrategy(String rewardType) {
+        System.out.println(REGISTER_MAP.size());
         return REGISTER_MAP.get(rewardType);
     }
+
+
 }

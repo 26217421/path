@@ -1,4 +1,4 @@
-package com.wbw.pattern.creative.exp.reward.util;
+package com.wbw.pattern.exp.reward.util;
 
 /**
  * @author wbw
@@ -6,6 +6,7 @@ package com.wbw.pattern.creative.exp.reward.util;
  * @date 2022-4-5 12:21
  */
 public class FoodRequest {
+
     public FoodRequest(Object[] params) {
     }
 }

@@ -1,7 +1,7 @@
-package com.wbw.pattern.creative.exp.reward;
+package com.wbw.pattern.exp.reward;
 
-import com.wbw.pattern.creative.exp.reward.util.FoodRequest;
-import com.wbw.pattern.creative.exp.reward.util.FoodService;
+import com.wbw.pattern.exp.reward.util.FoodRequest;
+import com.wbw.pattern.exp.reward.util.FoodService;
 
 /**
  * @author wbw

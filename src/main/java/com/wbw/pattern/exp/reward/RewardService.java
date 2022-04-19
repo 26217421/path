@@ -1,4 +1,4 @@
-package com.wbw.pattern.creative.exp.reward;
+package com.wbw.pattern.exp.reward;
 
 /**
  * @author wbw
@@ -12,4 +12,6 @@ public class RewardService {
         Strategy strategy = StrategyContext.getStrategy(rewardType);
         strategy.issue(params);
     }
+
+
 }

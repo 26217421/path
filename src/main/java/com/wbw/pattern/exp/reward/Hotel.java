@@ -1,7 +1,7 @@
-package com.wbw.pattern.creative.exp.reward;
+package com.wbw.pattern.exp.reward;
 
-import com.wbw.pattern.creative.exp.reward.util.HotelRequest;
-import com.wbw.pattern.creative.exp.reward.util.HotelService;
+import com.wbw.pattern.exp.reward.util.HotelRequest;
+import com.wbw.pattern.exp.reward.util.HotelService;
 
 /**
  * @author wbw

@@ -41,4 +41,13 @@ public class User {
     public Optional<Address> getAddress() {
         return Optional.ofNullable(address);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }

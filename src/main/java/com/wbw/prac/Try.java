@@ -1,6 +1,7 @@
 package com.wbw.prac;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+import com.wbw.java8.pojo.User;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -14,12 +15,12 @@ import java.util.function.Predicate;
 public class Try {
     private static final String S = "001111110100000110000100010100011101000001011001010000000010100100101100001000111110111100011100001111000001011011001000";
     public static void main(String[] args) {
-
-        byte[] bytes = "wangbowen123456".getBytes(StandardCharsets.UTF_8);
-        System.out.println(Arrays.toString(bytes));
-        System.out.println(bytes[0]);
-        System.out.println(binary(bytes, 2));
-        System.out.println(HexBin.encode(bytes));
+        User user = new User();
+        user.setEmail("123");
+        user.setPassword("abc");
+        User user1 = user;
+        user1.setPassword("qwe");
+        System.out.println(user);
 
     }
 
