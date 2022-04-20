@@ -9,8 +9,57 @@ import java.util.ArrayList;
  * @description: TODO
  * @date 2022-4-15 20:32
  */
-public class Solution {
+public class Solution415 {
     public int maxNum = Integer.MIN_VALUE;
+    int ans = 0;
+    public int findTilt(TreeNode root) {
+        dfs1(root);
+        return ans;
+    }
+
+    public int dfs1(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+        int left = dfs1(root.left);
+        int right = dfs1(root.right);
+        ans += Math.abs(left - right);
+        return right + left +root.val;
+    }
+
+    public int sumNumbers(TreeNode root) {
+        return dfs2(root, 0);
+    }
+    public int dfs2(TreeNode root, int ans) {
+        if(root == null) {
+            return 0;
+        }
+        ans = ans*10 + root.val;
+        if(root.left == null && root.right == null) {
+            return ans;
+        } else {
+            return dfs2(root.left, ans) + dfs2(root.right, ans);
+        }
+
+    }
+
+    public int sumRootToLeaf(TreeNode root) {
+        return dfs3(root, 0);
+    }
+
+    public int dfs3(TreeNode root, int ans) {
+        if(root == null) {
+            return 0;
+        }
+        ans = ans*2 + root.val;
+        if(root.left == null && root.right == null) {
+            return ans;
+        } else {
+            return dfs3(root.left, ans) + dfs3(root.right, ans);
+        }
+    }
+
+
     public int maxPathSum(TreeNode root) {
         dfs(root);
         return maxNum;
