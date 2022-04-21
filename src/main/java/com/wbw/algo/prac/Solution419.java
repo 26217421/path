@@ -37,8 +37,12 @@ public class Solution419 {
         }
         int l = dfs1(root.left);
         int r = dfs1(root.right);
-        if(l == 0) root.left = null;
-        if(r == 0) root.right = null;
+        if(l == 0) {
+            root.left = null;
+        }
+        if(r == 0) {
+            root.right = null;
+        }
         return l + r + root.val;
     }
 
@@ -93,4 +97,16 @@ public class Solution419 {
         }
         return root;
     }
+
+    public int last = Integer.MIN_VALUE, ans = Integer.MAX_VALUE;
+    public int minDiffInBST(TreeNode root) {
+        if (root != null) {
+            minDiffInBST(root.left);
+            ans = Math.min(ans, root.val - last);
+            last = root.val;
+            minDiffInBST(root.right);
+        }
+        return ans;
+    }
+
 }
