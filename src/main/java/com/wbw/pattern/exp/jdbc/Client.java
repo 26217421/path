@@ -1,6 +1,5 @@
 package com.wbw.pattern.exp.jdbc;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -13,7 +12,7 @@ import java.util.List;
  */
 public class Client {
     public static void main(String[] args) throws SQLException {
-        MysqlDataSource dataSource = new MysqlDataSource();
+/*        MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("root");
         dataSource.setPassword("262174rty");
         dataSource.setURL("jdbc:mysql://localhost:3306/test");
@@ -21,6 +20,6 @@ public class Client {
         dataSource.setUseSSL(false);
         MemberDao memberDao = new MemberDao(dataSource);
         List<Member> result = memberDao.selectAll();
-        result.forEach(System.out::println);
+        result.forEach(System.out::println);*/
     }
 }
