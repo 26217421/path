@@ -8,7 +8,7 @@ package com.wbw.pattern.relational.iterator;
 public class DinerMenu {
     private final static int Max_Items = 5;
     private int numberOfItems = 0;
-    private MenuItem[] menuItems;
+    private final MenuItem[] menuItems;
 
     public DinerMenu() {
         menuItems = new MenuItem[Max_Items];
@@ -45,11 +45,7 @@ public class DinerMenu {
         @Override
         public boolean hasNext() {
             // TODO Auto-generated method stub
-            if (position < numberOfItems) {
-                return true;
-            }
-
-            return false;
+            return position < numberOfItems;
         }
 
         @Override

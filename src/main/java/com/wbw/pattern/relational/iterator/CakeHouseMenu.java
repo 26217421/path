@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @date 2022-4-24 23:31
  */
 public class CakeHouseMenu {
-    private ArrayList<MenuItem> menuItems;
+    private final ArrayList<MenuItem> menuItems;
 
 
     public CakeHouseMenu() {
@@ -53,6 +53,6 @@ public class CakeHouseMenu {
             MenuItem menuItem =menuItems.get(position);
             position++;
             return menuItem;
-        }};
+        }}
 
 }
