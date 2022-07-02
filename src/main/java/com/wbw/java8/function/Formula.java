@@ -1,4 +1,7 @@
-package com.wbw.java8;
+package com.wbw.java8.function;
+
+
+import static java.lang.Math.sqrt;
 
 /**
  * @author wbw
@@ -26,9 +29,14 @@ class Test0{
                 return sqrt(a * 100);
             }
         };
+        process((a)-> sqrt(a*100));
 
         System.out.println(formula.calculate(100));     // 100.0
         System.out.print(formula.sqrt(16));
+
+    }
+    public static void process(Formula formula) {
+        System.out.println(formula.calculate(100));     // 100.0
 
     }
 }

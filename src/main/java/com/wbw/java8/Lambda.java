@@ -1,24 +1,107 @@
 package com.wbw.java8;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import com.google.common.collect.Lists;
+import com.wbw.java8.function.BufferedReaderProcessor;
+import org.junit.Test;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+import static java.util.Comparator.comparing;
+
 
 /**
  * @author wbw
  * @version 1.0
- * @description: TODO
  * @date 2021-12-10 16:16
  */
 public class Lambda {
 
-    public static void main(String[] args) {
-        List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
-        names.sort((a, b) -> b.compareTo(a));
-        for (String a:names
-             ) {
-            System.out.println(a);
+    @Test
+    public void testLambda1(){
+        process(()-> System.out.println("This is awesome!"));
+        try {
+            String result
+                    = processFile((BufferedReader br) -> br.readLine() + br.readLine());
+            System.out.println(result);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+    }
+    @Test
+    public void testPredicate() {
+        List<String> listOfStrings = Lists.newArrayList("ss", " ", "a", "as", "","qw");
+
+        Predicate<String> nonEmptyStringPredicate = (s) -> !(s.trim().isEmpty());
+        List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
+        System.out.println(nonEmpty);
+        nonEmpty.sort(comparing(String::length));
+        System.out.println(nonEmpty);
+    }
+    @Test
+    public void testConsumer() {
+        forEach(
+                Arrays.asList(1,2,3,4,5),
+                System.out::println
+        );
+    }
+    @Test
+    public void testFunction() {
+        List<Integer> l = map(
+                Arrays.asList("lambdas", "in", "action"),
+                String::length
+        );
+        System.out.println(l);
+
+    }
+
+    public <T, R> List<R> map(List<T> list, Function<T, R> f) {
+        List<R> result = new ArrayList<>();
+        for(T t: list) {
+            result.add(f.apply(t));
+        }
+        return result;
+    }
+    public <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> results = new ArrayList<>();
+        for(T t: list) {
+            if(p.test(t)) {
+                results.add(t);
+            }
+        }
+        return results;
+    }
+
+    public <T> void forEach(List<T> list, Consumer<T> c){
+        for(T i: list){
+            c.accept(i);
+        }
+    }
+
+    private String processFile(BufferedReaderProcessor bufferedReaderProcessor) throws IOException {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader("data.txt")
+        )) {
+            return bufferedReaderProcessor.process(br);
+        }
+    }
+
+    public String processFile() throws IOException {
+        try(BufferedReader br = new BufferedReader(
+                new FileReader("data.txt")
+        )){
+            return br.readLine();
+        }
+    }
+
+    public void process(Runnable runnable) {
+        runnable.run();
     }
 }

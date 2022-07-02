@@ -1,12 +1,12 @@
 package com.wbw.prac;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import com.wbw.java8.pojo.User;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -21,7 +21,6 @@ public class Try {
         User user1 = user;
         user1.setPassword("qwe");
         System.out.println(user);
-
     }
 
     public static String binary(byte[] bytes, int radix){
