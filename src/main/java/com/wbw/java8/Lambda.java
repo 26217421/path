@@ -2,9 +2,9 @@ package com.wbw.java8;
 
 import com.google.common.collect.Lists;
 import com.wbw.java8.function.BufferedReaderProcessor;
+import com.wbw.java8.pojo.Apple;
 import org.junit.Test;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import static java.awt.Color.*;
 import static java.util.Comparator.comparing;
 
 
@@ -34,6 +35,16 @@ public class Lambda {
             e.printStackTrace();
         }
 
+        List<Apple> inventory = new ArrayList<>();
+        inventory.add(new Apple(12, "China"));
+        inventory.add(new Apple(12, "Canada"));
+        inventory.add(new Apple(10, "China"));
+
+        inventory.sort(comparing(Apple::getWeight)
+                .reversed()
+                .thenComparing(Apple::getCountry));
+        System.out.println(inventory);
+
     }
     @Test
     public void testPredicate() {
@@ -44,6 +55,14 @@ public class Lambda {
         System.out.println(nonEmpty);
         nonEmpty.sort(comparing(String::length));
         System.out.println(nonEmpty);
+
+        Predicate<Apple> redApple = (apple -> RED.equals(apple.getColor()));
+        Predicate<Apple> notRedApple = redApple.negate();
+        Predicate<Apple> redAndHeavyApple =
+                redApple.and(apple -> apple.getWeight() > 150);
+        Predicate<Apple> redAndHeavyAppleOrGreen =
+                redApple.and(apple -> apple.getWeight() > 150)
+                        .or(apple -> GREEN.equals(apple.getColor()));
     }
     @Test
     public void testConsumer() {
@@ -60,6 +79,17 @@ public class Lambda {
         );
         System.out.println(l);
 
+        Function<Integer, Integer> f = x -> x + 1;
+        Function<Integer, Integer> g = x -> x * 2;
+        Function<Integer, Integer> h = f.andThen(g);
+        int result = h.apply(1);
+        System.out.println(result);
+
+        f = x -> x + 1;
+        g = x -> x * 2;
+        h = f.compose(g);
+        result = h.apply(1);
+        System.out.println(result);
     }
 
     public <T, R> List<R> map(List<T> list, Function<T, R> f) {
