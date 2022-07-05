@@ -2,10 +2,7 @@ package com.wbw.java8;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -40,7 +37,7 @@ public class StreamPracticeTest {
         stringCollection
                 .stream()
                 .map(String::toUpperCase)
-                .sorted((a, b) -> b.compareTo(a))
+                .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
         Optional<String> reduced =
                 stringCollection
@@ -54,13 +51,13 @@ public class StreamPracticeTest {
         List<String> values = getList();
 
         long t0 = System.nanoTime();
-        long count = values.stream().sorted().count();
+        long count = values.stream().count();
         System.out.println(count);
 
         long t1 = System.nanoTime();
 
         long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("顺序流排序耗时: %d ms", millis));
+        System.out.printf("顺序流排序耗时: %d ms%n", millis);
     }
 
     @Test
@@ -75,7 +72,7 @@ public class StreamPracticeTest {
         long t1 = System.nanoTime();
 
         long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("并行流排序耗时: %d ms", millis));
+        System.out.printf("并行流排序耗时: %d ms%n", millis);
 
     }
 
