@@ -1,4 +1,4 @@
-package com.wbw.java8;
+package com.wbw.java8.stream;
 
 import org.junit.Test;
 
