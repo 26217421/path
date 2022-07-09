@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  */
 public class StreamTest2 {
     @Test
-    public void testparallelStream() {
+    public void testParallelStream() {
         Long reduce = Stream.iterate(1L, i -> i + 1)
                 .limit(10000)
                 .parallel()
